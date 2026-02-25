@@ -1,0 +1,26 @@
+.bg-blur {
+  width: 100vw;
+  height: 100vh;
+  background-color: #080114;
+}
+.bg-blur::after {
+  content: "";
+  width: 12%;
+  height: 100%;
+  filter: blur(12rem);
+  background-image: linear-gradient(to bottom, #f81d66, #7a0af2);
+  position: absolute;
+  border-radius: 0 60% 60% 0;
+}
+
+.bg-blur::before {
+  content: "";
+  width: 12%;
+  height: 100%;
+  bottom: 0;
+  right: 0;
+  filter: blur(12rem);
+  background-image: linear-gradient(to top, #f81d66, #7a0af2);
+  position: absolute;
+  border-radius: 60% 0 0 60%;
+}
