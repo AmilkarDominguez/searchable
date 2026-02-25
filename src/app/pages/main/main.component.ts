@@ -1,12 +1,11 @@
 import { Component } from '@angular/core';
+import { SearchBarComponent } from '../../components/search-bar/search-bar.component';
 
 @Component({
   selector: 'app-main',
   standalone: true,
-  imports: [],
+  imports: [SearchBarComponent],
   templateUrl: './main.component.html',
-  styleUrl: './main.component.scss'
+  styleUrl: './main.component.scss',
 })
-export class MainComponent {
-
-}
+export class MainComponent {}
