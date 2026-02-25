@@ -7,7 +7,7 @@
 }
 
 .glass-card {
-  width: 40rem;
+  width: 42rem;
   height: 6rem;
   background: rgba(255, 255, 255, 0.15);
   backdrop-filter: blur(20px);
@@ -43,7 +43,7 @@
 }
 
 .input-search-container {
-  width: 38rem;
+  width: 40rem;
   height: 4rem;
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
@@ -103,7 +103,6 @@ input[type="search"]::-webkit-search-cancel-button {
 
   span {
     color: white;
-    font-style: normal;
   }
 
   &:hover {
