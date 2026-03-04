@@ -1,17 +1,14 @@
 <section class="card-container">
-  <div class="avatar">
-    <span class="material-symbols-outlined"> image </span>
-  </div>
-
   <section class="info-container">
     <div class="title-container">
-      <div>Maitenance request</div>
-      <div class="date">7h ago</div>
+      <div>{{message.sender}}</div>
+      <div class="info">{{message.message_id}}</div>
     </div>
-
     <div class="card-content">
-      The maitence request fro Jhon Doe in Apartment 301 has been completed, The
-      issue was a leaking fucet in the kitchen.
+      {{message.text}}
+    </div>
+    <div class="card-labels">
+      <div class="chip">Algo</div><div class="chip">Algo</div>
     </div>
   </section>
 </section>

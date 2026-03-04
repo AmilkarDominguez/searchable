@@ -1,8 +1,12 @@
 <section class="search-bar-container">
   <section class="glass-card">
     <section class="input-search-container">
-      <input class="input-search" type="search" placeholder="Search" />
-      <button class="search-button">
+      <button class="search-button" [class.vectorized]="vectorized" (click)="vectorized = !vectorized">
+        <span class="material-symbols-outlined">network_intelligence</span>
+      </button>
+      <input class="input-search" type="search" placeholder="Search" [(ngModel)]="text" (keydown.enter)="search()"
+             (keydown.esc)="text=''"/>
+      <button class="search-button" (click)="search()">
         <span class="material-symbols-outlined">search</span>
       </button>
     </section>

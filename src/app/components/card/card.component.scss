@@ -43,7 +43,7 @@
   justify-content: space-between;
 }
 
-.date {
+.info {
   font-weight: 200;
   font-style: italic;
   opacity: 0.5;
@@ -52,7 +52,19 @@
 .card-content {
   overflow: hidden;
   white-space: wrap;
-  width: 32rem;
+  width: 37rem;
   font-weight: 200;
   text-align: justify;
+}
+
+.card-labels{
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+}
+
+.chip{
+  padding: 0.1rem 0.75rem;
+  border-radius: 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.3);
 }

@@ -1,9 +1,24 @@
-<section class="list-container">
-  <section class="glass-card">
-    <section class="items-wrapper">
-      @for (item of [1, 2, 3, 4, 5, 6, 7, 8]; track $index) {
-        <app-card></app-card>
-      }
+@if (loading()) {
+  <span class="loader"></span>
+} @else {
+  <section class="list-container">
+    <section class="glass-card">
+      <section class="items-wrapper">
+        @for (message of messages(); track message) {
+          <app-card [message]="message"></app-card>
+        }
+      </section>
     </section>
   </section>
-</section>
+}
+
+
+
+
+<!--<div @ngIf="loading()">Loading...</div>-->
+
+<!--<div @ngFor="let message of messages()">-->
+<!--  {{ message.text }}-->
+<!--</div>-->
+
+
