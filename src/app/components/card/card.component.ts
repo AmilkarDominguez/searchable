@@ -1,14 +1,17 @@
 import {Component, Input} from '@angular/core';
-import {Message} from '../../domain/models/message';
+import {MessageResponse} from '../../domain/response/message.response';
+import {DecimalPipe} from '@angular/common';
 
 @Component({
   selector: 'app-card',
   standalone: true,
-  imports: [],
+  imports: [
+    DecimalPipe
+  ],
   templateUrl: './card.component.html',
   styleUrl: './card.component.scss',
 })
 export class CardComponent {
   @Input()
-  message!: Message;
+  message!: MessageResponse;
 }

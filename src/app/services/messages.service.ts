@@ -1,8 +1,8 @@
 import {inject, Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
-import {Message} from '../domain/models/message';
 import {SearchRequest} from '../domain/request/search.request';
+import {MessageResponse} from '../domain/response/message.response';
 
 @Injectable({
   providedIn: 'root'
@@ -16,7 +16,7 @@ export class MessagesService {
     this.API_URL = '/api/messages';
   }
 
-  search(request: SearchRequest): Observable<Message[]> {
-    return this.http.post<Message[]>(`${this.API_URL}/search`, request);
+  search(request: SearchRequest): Observable<MessageResponse[]> {
+    return this.http.post<MessageResponse[]>(`${this.API_URL}/search`, request);
   }
 }

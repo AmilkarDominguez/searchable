@@ -1,6 +1,6 @@
 @if (loading()) {
   <span class="loader"></span>
-} @else {
+} @else if (messages().length>0) {
   <section class="list-container">
     <section class="glass-card">
       <section class="items-wrapper">
@@ -11,14 +11,3 @@
     </section>
   </section>
 }
-
-
-
-
-<!--<div @ngIf="loading()">Loading...</div>-->
-
-<!--<div @ngFor="let message of messages()">-->
-<!--  {{ message.text }}-->
-<!--</div>-->
-
-

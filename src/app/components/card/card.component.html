@@ -1,14 +1,23 @@
 <section class="card-container">
   <section class="info-container">
     <div class="title-container">
-      <div>{{message.sender}}</div>
-      <div class="info">{{message.message_id}}</div>
+      <div>{{ message.sender }}</div>
+      <div class="info">{{ message.score | number }}</div>
     </div>
     <div class="card-content">
-      {{message.text}}
+      {{ message.text }}
     </div>
     <div class="card-labels">
-      <div class="chip">Algo</div><div class="chip">Algo</div>
+      @if (message.channel) {
+        <div class="chip" title="channel">
+          {{ message.channel }}
+        </div>
+      }
+      @if (message.thread_id) {
+        <div class="chip" title="thread title">
+          {{ message.thread_title }}
+        </div>
+      }
     </div>
   </section>
 </section>
