@@ -1,0 +1,39 @@
+<button class="hamburger-btn" (click)="toggle()" [class.hamburger-btn--open]="isOpen()" aria-label="Toggle menu">
+  <span class="hamburger-line hamburger-line--top"></span>
+  <span class="hamburger-line hamburger-line--middle"></span>
+  <span class="hamburger-line hamburger-line--bottom"></span>
+</button>
+
+<div class="overlay" [class.overlay--visible]="isOpen()" (click)="close()"></div>
+
+<nav class="sidenav" [class.sidenav--open]="isOpen()">
+
+  <div class="sidenav-header">
+    <span class="material-symbols-outlined sidenav-header-icon">auto_awesome</span>
+    <span class="sidenav-header-title">Menu</span>
+  </div>
+
+  <div class="sidenav-divider"></div>
+
+  <ul class="sidenav-menu">
+    <li class="sidenav-item">
+      <a class="sidenav-link" href="#" (click)="close()">
+        <span class="material-symbols-outlined sidenav-link-icon">dashboard</span>
+        <span class="sidenav-link-label">Dashboard</span>
+        <span class="sidenav-link-arrow material-symbols-outlined">chevron_right</span>
+      </a>
+    </li>
+
+    <li class="sidenav-item">
+      <a class="sidenav-link" href="#" (click)="close()">
+        <span class="material-symbols-outlined sidenav-link-icon">search</span>
+        <span class="sidenav-link-label">Search</span>
+        <span class="sidenav-link-arrow material-symbols-outlined">chevron_right</span>
+      </a>
+    </li>
+  </ul>
+
+  <div class="sidenav-footer">
+    <span class="sidenav-footer-text">v1.0.0</span>
+  </div>
+</nav>

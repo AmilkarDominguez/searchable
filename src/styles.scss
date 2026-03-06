@@ -1,5 +1,21 @@
 /* You can add global styles to this file, and also import other style files */
 @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+:root {
+  --color-bg: #080114;
+  --color-primary: #f81d66;
+  --color-secondary: #7a0af2;
+  --color-glass-bg: rgba(255, 255, 255, 0.08);
+  --color-glass-bg-hover: rgba(255, 255, 255, 0.14);
+  --color-glass-border: rgba(255, 255, 255, 0.2);
+  --color-glass-border-bright: rgba(255, 255, 255, 0.5);
+  --color-text: #ffffff;
+  --color-text-muted: rgba(255, 255, 255, 0.5);
+  --color-shadow: rgba(0, 0, 0, 0.4);
+  --color-overlay: rgba(0, 0, 0, 0.45);
+  --sidenav-width: 16rem;
+}
+
 html,
 body {
   font-family: "Poppins", sans-serif;
