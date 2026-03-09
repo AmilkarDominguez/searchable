@@ -17,7 +17,7 @@
 
   <ul class="sidenav-menu">
     <li class="sidenav-item">
-      <a class="sidenav-link" href="#" (click)="close()">
+      <a class="sidenav-link" routerLink="/dashboard" routerLinkActive="sidenav-link--active" (click)="close()">
         <span class="material-symbols-outlined sidenav-link-icon">dashboard</span>
         <span class="sidenav-link-label">Dashboard</span>
         <span class="sidenav-link-arrow material-symbols-outlined">chevron_right</span>
@@ -25,7 +25,7 @@
     </li>
 
     <li class="sidenav-item">
-      <a class="sidenav-link" href="#" (click)="close()">
+      <a class="sidenav-link" routerLink="/" routerLinkActive="sidenav-link--active" [routerLinkActiveOptions]="{exact: true}" (click)="close()">
         <span class="material-symbols-outlined sidenav-link-icon">search</span>
         <span class="sidenav-link-label">Search</span>
         <span class="sidenav-link-arrow material-symbols-outlined">chevron_right</span>

@@ -1,0 +1,64 @@
+@if (visible) {
+  <div class="modal-overlay" (click)="onCancel()">
+    <div class="modal-panel" (click)="$event.stopPropagation()">
+
+      <div class="modal-header">
+        <div class="modal-title-group">
+          <span class="material-symbols-outlined modal-title-icon">
+            {{ isEdit ? 'edit_note' : 'add_comment' }}
+          </span>
+          <h2 class="modal-title">{{ isEdit ? 'Edit Message' : 'New Message' }}</h2>
+        </div>
+        <button class="modal-close-btn" (click)="onCancel()" aria-label="Close">
+          <span class="material-symbols-outlined">close</span>
+        </button>
+      </div>
+
+      <div class="modal-divider"></div>
+
+      <form class="modal-form" (ngSubmit)="submit()">
+
+        <div class="form-row">
+          <div class="form-field">
+            <label class="form-label" for="sender">Sender</label>
+            <input class="form-input" id="sender" type="text" [(ngModel)]="form.sender" name="sender" placeholder="e.g. John Doe" required />
+          </div>
+          <div class="form-field">
+            <label class="form-label" for="space_type">Space Type</label>
+            <input class="form-input" id="space_type" type="text" [(ngModel)]="form.space_type" name="space_type" placeholder="e.g. public" />
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-field">
+            <label class="form-label" for="channel">Channel</label>
+            <input class="form-input" id="channel" type="text" [(ngModel)]="form.channel" name="channel" placeholder="e.g. #general" />
+          </div>
+          <div class="form-field">
+            <label class="form-label" for="thread_id">Thread ID</label>
+            <input class="form-input" id="thread_id" type="number" [(ngModel)]="form.thread_id" name="thread_id" placeholder="0" />
+          </div>
+        </div>
+
+        <div class="form-field">
+          <label class="form-label" for="thread_title">Thread Title</label>
+          <input class="form-input" id="thread_title" type="text" [(ngModel)]="form.thread_title" name="thread_title" placeholder="Thread title" />
+        </div>
+
+        <div class="form-field">
+          <label class="form-label" for="text">Message</label>
+          <textarea class="form-input form-textarea" id="text" [(ngModel)]="form.text" name="text" placeholder="Write the message content..." rows="4" required></textarea>
+        </div>
+
+        <div class="modal-actions">
+          <button class="btn-secondary" type="button" (click)="onCancel()">Cancel</button>
+          <button class="btn-primary" type="submit">
+            <span class="material-symbols-outlined">{{ isEdit ? 'save' : 'add' }}</span>
+            {{ isEdit ? 'Save Changes' : 'Create' }}
+          </button>
+        </div>
+
+      </form>
+    </div>
+  </div>
+}

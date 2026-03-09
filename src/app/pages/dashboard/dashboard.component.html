@@ -1,0 +1,123 @@
+<article class="dash-bg"></article>
+
+<div class="dash-container">
+
+  <header class="dash-header">
+    <div class="dash-header-left">
+      <span class="material-symbols-outlined dash-header-icon">dashboard</span>
+      <div>
+        <h1 class="dash-title">Dashboard</h1>
+        <p class="dash-subtitle">{{ store.total() }} messages registered</p>
+      </div>
+    </div>
+    <button class="btn-add" (click)="openCreate()">
+      <span class="material-symbols-outlined">add</span>
+      New Message
+    </button>
+  </header>
+
+  <div class="table-card">
+
+    @if (store.loading()) {
+      <div class="loading-overlay">
+        <span class="material-symbols-outlined loading-spinner">progress_activity</span>
+        <span class="loading-text">Loading...</span>
+      </div>
+    }
+
+    <div class="table-wrapper">
+      <table class="messages-table">
+        <thead>
+          <tr class="table-head-row">
+            <th class="table-th">ID</th>
+            <th class="table-th">Sender</th>
+            <th class="table-th">Space</th>
+            <th class="table-th">Channel</th>
+            <th class="table-th">Thread</th>
+            <th class="table-th table-th--wide">Message</th>
+            <th class="table-th table-th--center">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          @for (msg of store.messages(); track msg.message_id; let i = $index) {
+            <tr class="table-row" [class.table-row--deleting]="deletingId() === msg.message_id"
+                [style.animation-delay]="(i * 40) + 'ms'">
+              <td class="table-td table-td--id">
+                <span class="id-badge">{{ msg.message_id }}</span>
+              </td>
+              <td class="table-td">
+                <div class="sender-cell">
+                  <span class="sender-avatar">{{ msg.sender.charAt(0).toUpperCase() }}</span>
+                  <span class="sender-name">{{ msg.sender }}</span>
+                </div>
+              </td>
+              <td class="table-td">
+                <span class="space-chip">{{ msg.space_type }}</span>
+              </td>
+              <td class="table-td table-td--muted">{{ msg.channel }}</td>
+              <td class="table-td table-td--muted">{{ msg.thread_title }}</td>
+              <td class="table-td table-td--text">{{ msg.text }}</td>
+              <td class="table-td table-td--actions">
+                @if (deletingId() === msg.message_id) {
+                  <div class="delete-confirm">
+                    <span class="delete-confirm-label">Delete?</span>
+                    <button class="action-btn action-btn--confirm" (click)="doDelete(msg.message_id)" title="Confirm delete">
+                      <span class="material-symbols-outlined">check</span>
+                    </button>
+                    <button class="action-btn action-btn--cancel" (click)="cancelDelete()" title="Cancel">
+                      <span class="material-symbols-outlined">close</span>
+                    </button>
+                  </div>
+                } @else {
+                  <button class="action-btn action-btn--edit" (click)="openEdit(msg)" title="Edit">
+                    <span class="material-symbols-outlined">edit</span>
+                  </button>
+                  <button class="action-btn action-btn--delete" (click)="confirmDelete(msg.message_id)" title="Delete">
+                    <span class="material-symbols-outlined">delete</span>
+                  </button>
+                }
+              </td>
+            </tr>
+          } @empty {
+            @if (!store.loading()) {
+              <tr>
+                <td class="table-empty" colspan="7">
+                  <span class="material-symbols-outlined table-empty-icon">inbox</span>
+                  <p class="table-empty-text">No messages found</p>
+                </td>
+              </tr>
+            }
+          }
+        </tbody>
+      </table>
+    </div>
+
+    @if (store.totalPages() > 1) {
+      <div class="pagination">
+        <button class="page-btn page-btn--nav" [disabled]="store.page() === 0" (click)="goToPage(store.page() - 1)">
+          <span class="material-symbols-outlined">chevron_left</span>
+        </button>
+
+        @for (p of pages; track p) {
+          <button class="page-btn" [class.page-btn--active]="store.page() === p" (click)="goToPage(p)">
+            {{ p + 1 }}
+          </button>
+        }
+
+        <button class="page-btn page-btn--nav" [disabled]="store.page() === store.totalPages() - 1" (click)="goToPage(store.page() + 1)">
+          <span class="material-symbols-outlined">chevron_right</span>
+        </button>
+
+        <span class="pagination-info">{{ store.total() }} total</span>
+      </div>
+    }
+
+  </div>
+</div>
+
+<app-message-modal
+  [visible]="modalVisible()"
+  [message]="selectedMessage()"
+  (save)="onSave($event)"
+  (cancel)="closeModal()">
+</app-message-modal>

@@ -91,7 +91,7 @@
   border-right: 1px solid var(--color-glass-border);
   display: flex;
   flex-direction: column;
-  padding: 1.5rem 0;
+  padding: 1rem 0;
   transform: translateX(calc(-1 * var(--sidenav-width)));
   transition: transform 380ms cubic-bezier(0.23, 1, 0.32, 1);
   box-shadow: 0.25rem 0 2rem var(--color-shadow);
@@ -135,6 +135,7 @@
   display: flex;
   align-items: center;
   gap: 0.75rem;
+  justify-content: flex-end;
   padding: 1rem 1.5rem 1.25rem;
 }
 
@@ -239,6 +240,25 @@
 }
 
 .sidenav-link:hover .sidenav-link-arrow {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.sidenav-link--active {
+  color: var(--color-text);
+  background: var(--color-glass-bg);
+  border-color: var(--color-glass-border);
+}
+
+.sidenav-link--active::before {
+  opacity: 1;
+}
+
+.sidenav-link--active .sidenav-link-icon {
+  color: var(--color-primary);
+}
+
+.sidenav-link--active .sidenav-link-arrow {
   opacity: 1;
   transform: translateX(0);
 }
