@@ -20,29 +20,20 @@
 
         <div class="form-row">
           <div class="form-field">
-            <label class="form-label" for="sender">Sender</label>
-            <input class="form-input" id="sender" type="text" [(ngModel)]="form.sender" name="sender" placeholder="e.g. John Doe" required />
+            <label class="form-label" for="message_id">Id</label>
+            <input class="form-input" id="message_id" type="text" [(ngModel)]="form.message_id" name="message_id" placeholder="1" required />
           </div>
           <div class="form-field">
-            <label class="form-label" for="space_type">Space Type</label>
-            <input class="form-input" id="space_type" type="text" [(ngModel)]="form.space_type" name="space_type" placeholder="e.g. public" />
+            <label class="form-label" for="author">Author</label>
+            <input class="form-input" id="author" type="text" [(ngModel)]="form.author" name="author" placeholder="e.g. Amilkar" required />
           </div>
         </div>
 
         <div class="form-row">
           <div class="form-field">
-            <label class="form-label" for="channel">Channel</label>
-            <input class="form-input" id="channel" type="text" [(ngModel)]="form.channel" name="channel" placeholder="e.g. #general" />
+            <label class="form-label" for="chat">Chat</label>
+            <input class="form-input" id="chat" type="text" [(ngModel)]="form.chat" name="chat" placeholder="e.g. #general" />
           </div>
-          <div class="form-field">
-            <label class="form-label" for="thread_id">Thread ID</label>
-            <input class="form-input" id="thread_id" type="number" [(ngModel)]="form.thread_id" name="thread_id" placeholder="0" />
-          </div>
-        </div>
-
-        <div class="form-field">
-          <label class="form-label" for="thread_title">Thread Title</label>
-          <input class="form-input" id="thread_title" type="text" [(ngModel)]="form.thread_title" name="thread_title" placeholder="Thread title" />
         </div>
 
         <div class="form-field">

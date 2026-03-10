@@ -30,10 +30,8 @@
         <thead>
           <tr class="table-head-row">
             <th class="table-th">ID</th>
-            <th class="table-th">Sender</th>
-            <th class="table-th">Space</th>
-            <th class="table-th">Channel</th>
-            <th class="table-th">Thread</th>
+            <th class="table-th">Author</th>
+            <th class="table-th">Chat</th>
             <th class="table-th table-th--wide">Message</th>
             <th class="table-th table-th--center">Actions</th>
           </tr>
@@ -47,15 +45,13 @@
               </td>
               <td class="table-td">
                 <div class="sender-cell">
-                  <span class="sender-avatar">{{ msg.sender.charAt(0).toUpperCase() }}</span>
-                  <span class="sender-name">{{ msg.sender }}</span>
+                  <span class="sender-avatar">{{ msg.author.charAt(0).toUpperCase() }}</span>
+                  <span class="sender-name">{{ msg.author }}</span>
                 </div>
               </td>
               <td class="table-td">
-                <span class="space-chip">{{ msg.space_type }}</span>
+                <span class="space-chip">{{ msg.chat }}</span>
               </td>
-              <td class="table-td table-td--muted">{{ msg.channel }}</td>
-              <td class="table-td table-td--muted">{{ msg.thread_title }}</td>
               <td class="table-td table-td--text">{{ msg.text }}</td>
               <td class="table-td table-td--actions">
                 @if (deletingId() === msg.message_id) {

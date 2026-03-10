@@ -1,7 +1,7 @@
 <section class="card-container">
   <section class="info-container">
     <div class="title-container">
-      <div [appTooltip]="'sender'">{{ message.sender }}</div>
+      <div [appTooltip]="'author'">{{ message.author }}</div>
       <div class="info" [appTooltip]="'score'">{{ message.score | number }}</div>
     </div>
     <div class="card-content">
@@ -13,14 +13,9 @@
           {{ message.message_id }}
         </div>
       }
-      @if (message.channel) {
-        <div class="chip" [appTooltip]="'channel'">
-          {{ message.channel }}
-        </div>
-      }
-      @if (message.thread_id) {
-        <div class="chip" [appTooltip]="'thread title'">
-          {{ message.thread_title }}
+      @if (message.chat) {
+        <div class="chip" [appTooltip]="'chat'">
+          {{ message.chat }}
         </div>
       }
     </div>

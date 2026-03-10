@@ -3,7 +3,7 @@ import {CommonModule} from '@angular/common';
 import {FormsModule} from '@angular/forms';
 import {Message} from '../../domain/models/message';
 
-export type MessageForm = Omit<Message, 'message_id'>;
+export type MessageForm = Omit<Message, never>;
 
 @Component({
   selector: 'app-message-modal',
@@ -28,11 +28,9 @@ export class MessageModalComponent implements OnChanges {
     if (changes['message'] || changes['visible']) {
       this.form = this.message
         ? {
-            sender: this.message.sender,
-            space_type: this.message.space_type,
-            channel: this.message.channel,
-            thread_id: this.message.thread_id,
-            thread_title: this.message.thread_title,
+            message_id: this.message.message_id,
+            author: this.message.author,
+            chat: this.message.chat,
             text: this.message.text,
           }
         : this.emptyForm();
@@ -40,7 +38,7 @@ export class MessageModalComponent implements OnChanges {
   }
 
   private emptyForm(): MessageForm {
-    return {sender: '', space_type: '', channel: '', thread_id: 0, thread_title: '', text: ''};
+    return {message_id: null!, author: '', chat: '', text: ''};
   }
 
   submit() {
