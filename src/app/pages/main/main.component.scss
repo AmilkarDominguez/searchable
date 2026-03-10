@@ -39,6 +39,7 @@
   margin: auto;
   top: 1.5rem;
   width: 50%;
+  max-width: 52rem;
   height: auto;
   padding: 2rem;
   display: flex;
@@ -46,4 +47,20 @@
   align-items: center;
   flex-direction: column;
   gap: 2rem;
+}
+
+@media (max-width: 1024px) {
+  .main-container {
+    width: 80%;
+    padding: 1.5rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .main-container {
+    width: 95%;
+    padding: 1rem;
+    top: 0.5rem;
+    gap: 1rem;
+  }
 }

@@ -7,8 +7,8 @@
 }
 
 .glass-card {
-  width: 42rem;
-  height: 6rem;
+  width: 100%;
+  max-width: 42rem;
   background: rgba(255, 255, 255, 0.15);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
@@ -19,7 +19,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 0.5rem;
+  padding: 1rem;
 }
 
 .glass-card::before {
@@ -43,7 +43,8 @@
 }
 
 .input-search-container {
-  width: 40rem;
+  width: 100%;
+  max-width: 40rem;
   height: 4rem;
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
@@ -65,7 +66,26 @@
   font-size: x-large;
   outline: none;
   width: 100%;
+  min-width: 0;
   border-radius: 0.5rem;
+}
+
+@media (max-width: 640px) {
+  .glass-card {
+    margin-top: 4rem;
+    height: auto;
+    padding: 0.5rem;
+    border-radius: 14px;
+  }
+
+  .input-search-container {
+    height: 3.5rem;
+  }
+
+  .input-search {
+    font-size: large;
+    padding: 0.75rem 0 0.75rem 0.75rem;
+  }
 }
 
 .input-search:focus {
